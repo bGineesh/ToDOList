@@ -53,6 +53,9 @@ function handler(e) {
     if (toDoList.length == 0) {
       return;
     }
+    for (let i = 0; i < toDoList.length; i++) {
+      toDoList[i].done = true
+    }
     const newTasks = []
     toDoList = newTasks;
     Data();
