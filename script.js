@@ -59,8 +59,6 @@ function handler(e) {
     else{
       for (let i = 0; i < toDoList.length; i++) {
         if(toDoList[i].done == true){
-          // const newTasks=[];
-          // newTasks.push(toDoList)
           deleteTask(toDoList.id);
           Data();
           return;
@@ -70,6 +68,7 @@ function handler(e) {
   }
 }
 
+// this button function is to add a tasks to list
 function subButton() {
   let value = inputTask.value;
   if (value === '') {
@@ -85,6 +84,7 @@ function subButton() {
   inputTask.value = '';
 }
 
+// adding a task to the array
 function addTask(task) {
   if (task) {
     toDoList.push(task);
@@ -97,6 +97,7 @@ function addTask(task) {
   }
 }
 
+// to organise the data to add or delete from the list
 function Data() {
   taskList.innerHTML = '';
   if (toDoList.length == 0) {
@@ -108,6 +109,7 @@ function Data() {
   count.innerHTML = toDoList.length;
 }
 
+// this function is to write inner html in the unordered list
 function renderList(task) {
   const li = document.createElement('li');
 
@@ -126,6 +128,7 @@ function renderList(task) {
   taskList.append(li);
 }
 
+// this is to delete the data
 function deleteTask(id) {
   const newTasks = toDoList.filter(function (task) {
     return task.id !== id
@@ -134,6 +137,7 @@ function deleteTask(id) {
   Data();
 }
 
+// this does that the task is completed or not by adding the Boolean in to the data field 
 function markDone(id) {
   const task = toDoList.filter(function (task) {
     return task.id === id
