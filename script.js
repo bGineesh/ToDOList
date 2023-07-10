@@ -107,6 +107,7 @@ function renderList(task) {
 
   li.innerHTML = `<input type="checkbox" class="check" id="${task.id}" ${task.done ? 'checked' : null}>
   <label for="${task.id}">${task.name}</label>
+  <input type="date">
   <button class="but">
     <i class="fa fa-trash-o" aria-hidden="true" data-id="${task.id}"></i>
   </button>`
