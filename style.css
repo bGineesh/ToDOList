@@ -8,6 +8,7 @@ body {
   text-align: center;
 }
 
+/* to do task container */
 main {
   width: 700px;
   margin: 10px auto;
@@ -16,6 +17,7 @@ main {
   border-radius: 15px;
 }
 
+/* Input container */
 .inputContainer {
   padding: 10px 20px;
   background-color: hsl(209, 20%, 95%);
@@ -94,7 +96,6 @@ ul {
 ul li {
   padding: 10px;
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   position: relative;
 }
@@ -133,13 +134,21 @@ ul li:hover {
   margin: 0;
 }
 
+/* style for task count */
+#taskCount {
+  width: 0;
+  font-weight: 800;
+  font-size: 1rem;
+  margin-left: 3px;
+}
+
 .complete p {
   display: inline-block;
   margin: 0;
   width: 50%;
   text-align: left;
   font-size: 0.8rem;
-  margin-left: 0px;
+  margin-right: 100px;
 }
 
 .complete span {
@@ -154,6 +163,7 @@ ul li:hover {
 .complete span:visited {
   color: hsl(206, 5%, 73%);
 }
+
 
 /* buttons */
 button {
