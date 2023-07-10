@@ -89,7 +89,7 @@ function addTask(task) {
 function Data() {
   taskList.innerHTML = '';
   if (toDoList.length == 0) {
-    alert("All tasks are completed and trashed.")
+    alert("All tasks are completed")
   }
   for (let i = 0; i < toDoList.length; i++) {
     renderList(toDoList[i]);
