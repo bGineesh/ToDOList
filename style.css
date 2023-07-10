@@ -67,9 +67,12 @@ input[type=text] {
 }
 
 
-.inputContainer~a>i {
+.dobCheck {
+  color: hsl(206, 5%, 73%);
   font-size: 1.1rem;
   margin-right: 20px;
+  font-weight: lighter;
+  cursor: pointer;
 }
 
 

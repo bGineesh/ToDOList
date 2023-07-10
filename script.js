@@ -15,40 +15,42 @@ function handler(e) {
   if (target.className === 'fa fa-trash-o') {
     const taskId = target.dataset.id;
     deleteTask(taskId);
-    alert('Task deleted!');
     return;
   }
   else if (target.className === 'check') {
     const taskId = target.id;
-    alert('Task completed!');
     markDone(taskId);
     return;
-  } else if (target.className === 'completedAll') {
+  } else if (target.className === 'incomplete') {
     if (toDoList.length == 0) {
-      alert('Sorry! no tasks');
-      return;
-    }
-    for (let i = 0; i < toDoList.length; i++) {
-      toDoList[i].done = true
-    }
-    Data();
-    alert('you have completed all task.')
-
-  } else if (target.className === 'completed') {
-    if (toDoList.length == 0) {
-      alert('Sorry! no tasks');
       return;
     }
     for (let i = 0; i < toDoList.length; i++) {
       toDoList[i].done = false
     }
     Data();
-    alert('incomplete')
+
+  } else if (target.className === 'completed') {
+    if (toDoList.length == 0) {
+      return;
+    }
+    for (let i = 0; i < toDoList.length; i++) {
+      toDoList[i].done = true
+    }
+    Data();
+  }
+  else if (target.className === 'fa-solid fa-check-double dobCheck') {
+    if (toDoList.length == 0) {
+      return;
+    }
+    for (let i = 0; i < toDoList.length; i++) {
+      toDoList[i].done = true
+    }
+    Data();
 
   }
   else if (target.className === 'deltAll') {
     if (toDoList.length == 0) {
-      alert('Sorry, no tasks or trashed .');
       return;
     }
     const newTasks = []
