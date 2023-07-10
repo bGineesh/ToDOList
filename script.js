@@ -1,12 +1,15 @@
+// getting values from id and class
 const inputTask = document.querySelector('#input');
 const taskList = document.getElementById('list');
 const count = document.getElementById('taskCount');
 
-
+// array to store the data of todolist.
 let toDoList = [];
 
+// it is event listener when ever we on the buttons in page and it do has we written in methods
 document.addEventListener('click', handler);
 
+// it is the function for function every event that we mention in html
 function handler(e) {
   const target = e.target;
   if (target.className == 'fa fa-plus-circle add') {
@@ -56,14 +59,14 @@ function handler(e) {
     else{
       for (let i = 0; i < toDoList.length; i++) {
         if(toDoList[i].done == true){
-          const newTasks=[];
-          toDoList = newTasks;
+          // const newTasks=[];
+          // newTasks.push(toDoList)
+          deleteTask(toDoList.id);
           Data();
+          return;
         }
       }
     }
- 
-  
   }
 }
 
