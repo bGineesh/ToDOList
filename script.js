@@ -59,7 +59,8 @@ function handler(e) {
     else{
       for (let i = 0; i < toDoList.length; i++) {
         if(toDoList[i].done == true){
-          deleteTask(toDoList[i].id);
+          const newTasks = []
+          toDoList = newTasks;
           Data();
           return;
         }
