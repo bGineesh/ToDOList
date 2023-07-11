@@ -56,15 +56,14 @@ function handler(e) {
     if (toDoList.length == 0) {
       return;
     }
-    else{
+    else {
       for (let i = 0; i < toDoList.length; i++) {
-        if(toDoList[i].done == true){
-          const newTasks = []
-          toDoList = newTasks;
-          Data();
+        if (toDoList[i].done == true) {
+          deleteTask(toDoList[i].id);
           return;
         }
       }
+      Data();
     }
   }
 }
