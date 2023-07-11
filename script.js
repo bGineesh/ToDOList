@@ -59,7 +59,7 @@ function handler(e) {
     else{
       for (let i = 0; i < toDoList.length; i++) {
         if(toDoList[i].done == true){
-          deleteTask(toDoList.id);
+          deleteTask(toDoList[i].id);
           Data();
           return;
         }
