@@ -1,27 +1,46 @@
+// getting values from id and class
 const inputTask = document.querySelector('#input');
 const taskList = document.getElementById('list');
 const count = document.getElementById('taskCount');
 
-
+// array to store the data of todolist.
 let toDoList = [];
 
+inputTask.addEventListener('click', () => {
+  const place = document.querySelector('.inputContainer');
+  const icon = document.createElement('button');
+  icon.setAttribute('id', 'but');
+  icon.innerHTML = `<i class="fa fa-plus-circle add" aria-hidden="true"></i>`;
+  place.append(icon);
+},
+  {
+    once: true
+  }
+)
+
+// it is event listener when ever we on the buttons in page and it do has we written in methods
 document.addEventListener('click', handler);
 
+// it is the function for function every event that we mention in html
 function handler(e) {
   const target = e.target;
   if (target.className == 'fa fa-plus-circle add') {
     subButton();
   }
+
   if (target.className === 'fa fa-trash-o') {
     const taskId = target.dataset.id;
     deleteTask(taskId);
     return;
   }
+
   else if (target.className === 'check') {
     const taskId = target.id;
     markDone(taskId);
     return;
-  } else if (target.className === 'incomplete') {
+  }
+
+  else if (target.className === 'incomplete') {
     if (toDoList.length == 0) {
       return;
     }
@@ -29,8 +48,9 @@ function handler(e) {
       toDoList[i].done = false
     }
     Data();
+  }
 
-  } else if (target.className === 'completed') {
+  else if (target.className === 'completed') {
     if (toDoList.length == 0) {
       return;
     }
@@ -39,6 +59,7 @@ function handler(e) {
     }
     Data();
   }
+
   else if (target.className === 'fa-solid fa-check-double dobCheck') {
     if (toDoList.length == 0) {
       return;
@@ -53,12 +74,21 @@ function handler(e) {
     if (toDoList.length == 0) {
       return;
     }
-    const newTasks = []
-    toDoList = newTasks;
-    Data();
+
+    else {
+      for (let i = 0; i < toDoList.length; i++) {
+        if (toDoList[i].done == true) {
+          deleteTask(toDoList[i].id);
+          return;
+        }
+      }
+      Data();
+    }
+
   }
 }
 
+// this button function is to add a tasks to list
 function subButton() {
   let value = inputTask.value;
   if (value === '') {
@@ -74,6 +104,7 @@ function subButton() {
   inputTask.value = '';
 }
 
+// adding a task to the array
 function addTask(task) {
   if (task) {
     toDoList.push(task);
@@ -86,6 +117,7 @@ function addTask(task) {
   }
 }
 
+// to organize the data to add or delete from the list
 function Data() {
   taskList.innerHTML = '';
   if (toDoList.length == 0) {
@@ -97,6 +129,7 @@ function Data() {
   count.innerHTML = toDoList.length;
 }
 
+// this function is to write inner html in the unordered list
 function renderList(task) {
   const li = document.createElement('li');
 
@@ -115,6 +148,7 @@ function renderList(task) {
   taskList.append(li);
 }
 
+// this is to delete the data
 function deleteTask(id) {
   const newTasks = toDoList.filter(function (task) {
     return task.id !== id
@@ -123,6 +157,7 @@ function deleteTask(id) {
   Data();
 }
 
+// this does that the task is completed or not by adding the Boolean in to the data field 
 function markDone(id) {
   const task = toDoList.filter(function (task) {
     return task.id === id
