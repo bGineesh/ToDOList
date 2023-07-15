@@ -74,17 +74,9 @@ function handler(e) {
     if (toDoList.length == 0) {
       return;
     }
-
-    else {
-      for (let i = 0; i < toDoList.length; i++) {
-        if (toDoList[i].done == true) {
-          deleteTask(toDoList[i].id);
-          return;
-        }
-      }
-      Data();
-    }
-
+    const newTasks = []
+    toDoList = newTasks;
+    Data();
   }
 }
 
@@ -117,7 +109,6 @@ function addTask(task) {
   }
 }
 
-// to organize the data to add or delete from the list
 function Data() {
   taskList.innerHTML = '';
   if (toDoList.length == 0) {
