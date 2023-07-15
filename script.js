@@ -6,6 +6,18 @@ const count = document.getElementById('taskCount');
 // array to store the data of todolist.
 let toDoList = [];
 
+inputTask.addEventListener('click', () => {
+  const place = document.querySelector('.inputContainer');
+  const icon = document.createElement('button');
+  icon.setAttribute('id', 'but');
+  icon.innerHTML = `<i class="fa fa-plus-circle add" aria-hidden="true"></i>`;
+  place.append(icon);
+},
+  {
+    once: true
+  }
+)
+
 // it is event listener when ever we on the buttons in page and it do has we written in methods
 document.addEventListener('click', handler);
 
